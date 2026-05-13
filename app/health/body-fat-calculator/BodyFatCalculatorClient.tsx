@@ -1,34 +1,11 @@
 "use client";
-
-import { useState } from "react";
-
-export default function BodyFatCalculatorClient() {
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [age, setAge] = useState("");
-  const [result, setResult] = useState<string | null>(null);
-
-  const calculateBodyFat = () => {
-    const w = Number(weight);
-    const h = Number(height);
-    const a = Number(age);
-
-    if (!w || !h || !a) {
-      setResult("Please fill all fields correctly.");
-      return;
-    }
-
-    const bmi = w / ((h / 100) * (h / 100));
-
-    const bodyFat =
-      1.2 * bmi + 0.23 * a - 10.8 * 1 - 5.4;
+      1.2 * bmi + 0.23 * a - 10.8 - 5.4;
 
     setResult(`${bodyFat.toFixed(2)}% Body Fat`);
   };
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
       <div className="grid gap-5">
 
         <div>

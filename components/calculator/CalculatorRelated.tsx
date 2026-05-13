@@ -1,9 +1,6 @@
 import Link from "next/link";
 
-type RelatedCalculator = {
-  title: string;
-  href: string;
-};
+import type { RelatedCalculator } from "@/types/calculator";
 
 type Props = {
   calculators: RelatedCalculator[];

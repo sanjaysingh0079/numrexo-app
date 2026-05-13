@@ -1,39 +1,13 @@
 export type CalculatorInput = {
-  id: string;
-  label: string;
-  type: string;
-  placeholder?: string;
-};
-
-export type CalculatorFAQ = {
-  question: string;
-  answer: string;
-};
-
-export type RelatedCalculator = {
-  title: string;
-  href: string;
-};
-
-export type CalculatorFormula = {
-  title: string;
-  formula: string;
-  explanation: string;
-};
-
-export type CalculatorStep = {
-  title: string;
-  description: string;
-};
-
-export type CalculatorRange = {
-  label: string;
-  value: string;
-};
 
 export type CalculatorTip = {
   title: string;
   description: string;
+};
+
+export type CalculatorInterpretation = {
+  category: string;
+  range: string;
 };
 
 export type CalculatorContent = {
@@ -51,8 +25,6 @@ export type CalculatorContent = {
 
   example?: string;
 
-  interpretation?: string;
-
   resultLabel?: string;
 
   inputs: CalculatorInput[];
@@ -64,6 +36,8 @@ export type CalculatorContent = {
   ranges?: CalculatorRange[];
 
   tips?: CalculatorTip[];
+
+  interpretation?: CalculatorInterpretation[];
 
   faqs: CalculatorFAQ[];
 
