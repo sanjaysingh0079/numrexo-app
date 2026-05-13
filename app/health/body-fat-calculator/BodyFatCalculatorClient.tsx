@@ -1,171 +1,91 @@
 "use client";
 
 import { useState } from "react";
-import CalculatorSection from "@/components/calculator/CalculatorSection";
-// import CalculatorRelated from "@/components/calculator/CalculatorRelated";
 
 export default function BodyFatCalculatorClient() {
-  const [gender, setGender] = useState("male");
-  const [age, setAge] = useState("");
-  const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
-  const [neck, setNeck] = useState("");
-  const [waist, setWaist] = useState("");
-  const [hip, setHip] = useState("");
-  const [result, setResult] = useState<number | null>(null);
+  const [height, setHeight] = useState("");
+  const [age, setAge] = useState("");
+  const [result, setResult] = useState<string | null>(null);
 
   const calculateBodyFat = () => {
-    const h = parseFloat(height);
-    const n = parseFloat(neck);
-    const w = parseFloat(waist);
-    const hp = parseFloat(hip);
+    const w = Number(weight);
+    const h = Number(height);
+    const a = Number(age);
 
-    if (!h || !n || !w) return;
-
-    let bodyFat = 0;
-
-    if (gender === "male") {
-      bodyFat =
-        495 /
-          (1.0324 -
-            0.19077 * Math.log10(w - n) +
-            0.15456 * Math.log10(h)) -
-        450;
-    } else {
-      bodyFat =
-        495 /
-          (1.29579 -
-            0.35004 * Math.log10(w + hp - n) +
-            0.221 * Math.log10(h)) -
-        450;
+    if (!w || !h || !a) {
+      setResult("Please fill all fields correctly.");
+      return;
     }
 
-    setResult(parseFloat(bodyFat.toFixed(2)));
+    const bmi = w / ((h / 100) * (h / 100));
+
+    const bodyFat =
+      1.2 * bmi + 0.23 * a - 10.8 * 1 - 5.4;
+
+    setResult(`${bodyFat.toFixed(2)}% Body Fat`);
   };
 
   return (
-    <div className="space-y-8">
-      <CalculatorSection title="Body Fat Calculator">
-        <div className="grid gap-4">
-          <div>
-            <label className="block mb-2 font-medium">Gender</label>
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
-            <select
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-              className="w-full border rounded-lg p-3"
-            >
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
+      <div className="grid gap-5">
 
-          <div>
-            <label className="block mb-2 font-medium">Age</label>
+        <div>
+          <label className="mb-2 block text-sm font-medium">
+            Weight (kg)
+          </label>
 
-            <input
-              type="number"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              className="w-full border rounded-lg p-3"
-              placeholder="Enter age"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Height (cm)
-            </label>
-
-            <input
-              type="number"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-              className="w-full border rounded-lg p-3"
-              placeholder="Enter height"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Weight (kg)
-            </label>
-
-            <input
-              type="number"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-              className="w-full border rounded-lg p-3"
-              placeholder="Enter weight"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Neck (cm)
-            </label>
-
-            <input
-              type="number"
-              value={neck}
-              onChange={(e) => setNeck(e.target.value)}
-              className="w-full border rounded-lg p-3"
-              placeholder="Enter neck size"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Waist (cm)
-            </label>
-
-            <input
-              type="number"
-              value={waist}
-              onChange={(e) => setWaist(e.target.value)}
-              className="w-full border rounded-lg p-3"
-              placeholder="Enter waist size"
-            />
-          </div>
-
-          {gender === "female" && (
-            <div>
-              <label className="block mb-2 font-medium">
-                Hip (cm)
-              </label>
-
-              <input
-                type="number"
-                value={hip}
-                onChange={(e) => setHip(e.target.value)}
-                className="w-full border rounded-lg p-3"
-                placeholder="Enter hip size"
-              />
-            </div>
-          )}
-
-          <button
-            onClick={calculateBodyFat}
-            className="bg-black text-white rounded-lg p-3"
-          >
-            Calculate Body Fat
-          </button>
-
-          {result !== null && (
-            <div className="border rounded-lg p-4 text-lg font-semibold">
-              Body Fat Percentage: {result}%
-            </div>
-          )}
+          <input
+            type="number"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-black"
+            placeholder="Enter weight"
+          />
         </div>
-      </CalculatorSection>
 
-      {/*
-      <CalculatorSection title="Related Calculators">
-        <CalculatorRelated
-          calculators={bodyFatData.relatedCalculators}
-        />
-      </CalculatorSection>
-      */}
+        <div>
+          <label className="mb-2 block text-sm font-medium">
+            Height (cm)
+          </label>
+
+          <input
+            type="number"
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-black"
+            placeholder="Enter height"
+          />
+        </div>
+
+        <div>
+          <label className="mb-2 block text-sm font-medium">
+            Age
+          </label>
+
+          <input
+            type="number"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-black"
+            placeholder="Enter age"
+          />
+        </div>
+
+        <button
+          onClick={calculateBodyFat}
+          className="rounded-xl bg-black px-5 py-3 text-white transition hover:opacity-90"
+        >
+          Calculate
+        </button>
+
+        {result && (
+          <div className="rounded-xl bg-slate-100 p-4 text-lg font-semibold">
+            {result}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

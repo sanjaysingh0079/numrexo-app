@@ -1,27 +1,31 @@
 import Link from "next/link";
 
-type Related = {
-  name: string;
+type RelatedCalculator = {
+  title: string;
   href: string;
 };
 
 type Props = {
-  calculators: Related[];
+  calculators: RelatedCalculator[];
 };
 
 export default function CalculatorRelated({
   calculators,
 }: Props) {
+  if (!calculators || calculators.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="grid gap-4 md:grid-cols-3">
-      {calculators.map((calculator) => (
+    <div className="grid gap-4 sm:grid-cols-2">
+      {calculators.map((calculator, index) => (
         <Link
-          key={calculator.href}
+          key={index}
           href={calculator.href}
-          className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-emerald-500"
+          className="rounded-xl border border-slate-200 p-4 transition hover:border-slate-400 hover:bg-slate-50"
         >
-          <h3 className="font-semibold text-slate-900">
-            {calculator.name}
+          <h3 className="font-medium">
+            {calculator.title}
           </h3>
         </Link>
       ))}
