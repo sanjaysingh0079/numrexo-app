@@ -8,6 +8,7 @@ export type CalculatorTip = {
 export type CalculatorInterpretation = {
   category: string;
   range: string;
+  [key: string]: any;
 };
 
 export type CalculatorContent = {
