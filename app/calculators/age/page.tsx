@@ -8,7 +8,10 @@ const meta = {
   tagline: "Calculate your age easily",
 };
 
-export const metadata = buildCalculatorMetadata(meta);
+export const metadata = {
+  title: "Age Calculator",
+  description: "Calculate your age easily",
+};
 
 export default function AgeCalculatorPage() {
   return (
