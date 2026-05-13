@@ -5,8 +5,8 @@ import BodyFatCalculatorClient from "./BodyFatCalculatorClient";
 import { bodyFatData } from "@/data/calculators/bodyFat";
 
 export const metadata = generateSeo({
-  title: bodyFatData.metaTitle,
-  description: bodyFatData.metaDescription,
+  title: bodyFatData.Title,
+  description: bodyFatData.Description,
   path: "/health/body-fat-calculator",
 });
 
