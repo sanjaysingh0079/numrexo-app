@@ -3,7 +3,10 @@ import { buildCalculatorMetadata } from "@/components/seo/calculator-metadata";
 import { getCalculatorMeta } from "@/config/calculators";
 import { AgeCalculatorClient } from "@/features/calculators/age/AgeCalculatorClient";
 
-const meta = getCalculatorMeta("age");
+const meta = {
+  title: "Age Calculator",
+  tagline: "Calculate your age easily",
+};
 
 export const metadata = buildCalculatorMetadata(meta);
 
