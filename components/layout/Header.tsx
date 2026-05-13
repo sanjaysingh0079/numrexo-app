@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        
+
         {/* Logo */}
         <Link
           href="/"
@@ -63,13 +63,21 @@ export default function Header() {
 
         {/* Right Side Buttons */}
         <div className="flex items-center gap-3">
-          <button className="hidden rounded-xl border border-gray-300 px-5 py-2 text-sm font-medium text-black transition hover:bg-gray-100 sm:flex">
-            Sign In
-          </button>
 
-          <button className="rounded-xl bg-black px-5 py-2 text-sm font-semibold text-white transition hover:bg-gray-800">
+          <Link
+            href="/login"
+            className="hidden rounded-xl border border-gray-300 px-5 py-2 text-sm font-medium text-black transition hover:bg-gray-100 sm:flex"
+          >
+            Sign In
+          </Link>
+
+          <Link
+            href="/health/bmi-calculator"
+            className="rounded-xl bg-black px-5 py-2 text-sm font-semibold text-white transition hover:bg-gray-800"
+          >
             Get Started
-          </button>
+          </Link>
+
         </div>
       </div>
     </header>

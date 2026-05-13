@@ -30,7 +30,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/calculators/bmi"
+                href="/health/bmi-calculator"
                 className="px-7 py-3 rounded-2xl border border-slate-300 text-slate-800 font-semibold hover:bg-slate-50 transition"
               >
                 Try BMI Calculator
@@ -69,31 +69,31 @@ export default function HomePage() {
             {[
               {
                 name: "BMI Calculator",
-                link: "/calculators/bmi",
+                link: "/health/bmi-calculator",
               },
               {
                 name: "BMR Calculator",
-                link: "/calculators/bmr",
+                link: "/health/bmr-calculator",
               },
               {
                 name: "Calorie Calculator",
-                link: "/calculators/calorie",
+                link: "/health/calorie-calculator",
               },
               {
                 name: "Age Calculator",
-                link: "/calculators/age",
+                link: "/health/age",
               },
               {
                 name: "Body Fat",
-                link: "/calculators/body-fat",
+                link: "/health/body-fat-calculator",
               },
               {
                 name: "Water Intake",
-                link: "/calculators/water-intake",
+                link: "/health/water-intake",
               },
               {
                 name: "Ideal Weight",
-                link: "/calculators/ideal-weight",
+                link: "/health/ideal-weight",
               },
               {
                 name: "Loan EMI",
