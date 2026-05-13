@@ -3,10 +3,10 @@ import CalculatorFormula from "./CalculatorFormula";
 import CalculatorFAQ from "./CalculatorFAQ";
 import CalculatorRelated from "./CalculatorRelated";
 
-import { CalculatorContent as CalculatorContentType } from "@/types/calculator";
+import type { CalculatorContent } from "@/types/calculator";
 
 type Props = {
-  data: CalculatorContentType;
+  data: CalculatorContent;
 };
 
 export default function CalculatorContent({
