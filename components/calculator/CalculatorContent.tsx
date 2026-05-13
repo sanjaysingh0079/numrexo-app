@@ -13,7 +13,7 @@ import CalculatorSection from "./CalculatorSection";
               </thead>
 
               <tbody>
-                {data.interpretation.map((item, index) => (
+                {data.interpretation?.map((item, index) => (
                   <tr key={index}>
                     <td className="border border-slate-200 px-4 py-3">
                       {item.category}
