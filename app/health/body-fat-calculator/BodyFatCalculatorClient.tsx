@@ -271,9 +271,11 @@ export default function BodyFatCalculatorClient() {
         </CalculatorSection>
 
         <CalculatorSection title="Related Calculators">
-          <CalculatorRelated
-            calculators={bodyFatData.relatedCalculators}
-          />
+          {/* 
+<CalculatorRelated
+  calculators={bodyFatData.relatedCalculators}
+/> 
+*/}
         </CalculatorSection>
 
       </section>
