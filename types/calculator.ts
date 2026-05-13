@@ -15,6 +15,12 @@ export type RelatedCalculator = {
   href: string;
 };
 
+export type CalculatorFormula = {
+  title: string;
+  formula: string;
+  explanation: string;
+};
+
 export type CalculatorData = {
   slug: string;
   title: string;
@@ -23,16 +29,19 @@ export type CalculatorData = {
 
   inputs: CalculatorInput[];
 
-  formula: {
-    title: string;
-    formula: string;
-    explanation: string;
-  };
+  formula: CalculatorFormula;
 
   faqs: CalculatorFAQ[];
 
   relatedCalculators: RelatedCalculator[];
 };
+
+/**
+ * Compatibility alias
+ * Older components use CalculatorContent
+ */
+export type CalculatorContent = CalculatorData;
+
 export const CALCULATOR_SLUGS = [
   "bmi-calculator",
   "bmr-calculator",
