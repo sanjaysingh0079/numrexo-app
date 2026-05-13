@@ -7,7 +7,7 @@ export type CalculatorInput = {
 
 export type CalculatorFAQ = {
   question: string;
-  answer: string;
+ answer: string;
 };
 
 export type RelatedCalculator = {
@@ -21,11 +21,16 @@ export type CalculatorFormula = {
   explanation: string;
 };
 
-export type CalculatorData = {
+export type CalculatorContent = {
   slug: string;
+
   title: string;
+
   description: string;
+
   category: string;
+
+  whatIs?: string;
 
   inputs: CalculatorInput[];
 
@@ -36,11 +41,7 @@ export type CalculatorData = {
   relatedCalculators: RelatedCalculator[];
 };
 
-/**
- * Compatibility alias
- * Older components use CalculatorContent
- */
-export type CalculatorContent = CalculatorData;
+export type CalculatorData = CalculatorContent;
 
 export const CALCULATOR_SLUGS = [
   "bmi-calculator",
