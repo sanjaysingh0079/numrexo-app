@@ -3,7 +3,7 @@ import { buildCalculatorMetadata } from "@/components/seo/calculator-metadata";
 import { getCalculatorMeta } from "@/config/calculators";
 import { AgeCalculatorClient } from "@/features/calculators/age/AgeCalculatorClient";
 
-const meta = getCalculatorMeta("age");
+const meta = getCalculatorMeta("bmi");
 
 export const metadata = buildCalculatorMetadata(meta);
 
