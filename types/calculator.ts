@@ -7,7 +7,7 @@ export type CalculatorInput = {
 
 export type CalculatorFAQ = {
   question: string;
- answer: string;
+  answer: string;
 };
 
 export type RelatedCalculator = {
@@ -21,6 +21,21 @@ export type CalculatorFormula = {
   explanation: string;
 };
 
+export type CalculatorStep = {
+  title: string;
+  description: string;
+};
+
+export type CalculatorRange = {
+  label: string;
+  value: string;
+};
+
+export type CalculatorTip = {
+  title: string;
+  description: string;
+};
+
 export type CalculatorContent = {
   slug: string;
 
@@ -30,11 +45,25 @@ export type CalculatorContent = {
 
   category: string;
 
+  shortDescription?: string;
+
   whatIs?: string;
+
+  example?: string;
+
+  interpretation?: string;
+
+  resultLabel?: string;
 
   inputs: CalculatorInput[];
 
   formula: CalculatorFormula;
+
+  steps?: CalculatorStep[];
+
+  ranges?: CalculatorRange[];
+
+  tips?: CalculatorTip[];
 
   faqs: CalculatorFAQ[];
 
