@@ -63,3 +63,7 @@ export type CalculatorSlug =
 
 export type DynamicCalculatorSlug =
   typeof DYNAMIC_CALCULATOR_SLUGS[number];
+  export interface RelatedCalculator {
+  title: string;
+  href: string;
+}
